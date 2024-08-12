@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     signUpForm.addEventListener("submit", async (e) => {
         e.preventDefault();
+        console.log("Submit event listener triggered.")
         const email = document.getElementById("sign-up-email").value;
         const password = document.getElementById("sign-up-password").value;
         const repeatPassword = document.getElementById("sign-up-password-repeat").value;
@@ -29,6 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 email: user.email,
                 createdAt: new Date()
             });
+            // Create planner subcollection for each user
+            const plannerRef = doc(db, "users", user.uid, "planner", "default");
+            await setDoc(plannerRef, {
+                // Initialize empty workout array in planner to populate
+                workouts: []
+            }, { once: true});
+            console.log("User ID and planner stored in database.")
+
             signUpForm.reset();
             signupErrorMessage.textContent = ""
         } catch (error) {
