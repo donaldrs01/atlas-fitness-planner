@@ -1,0 +1,310 @@
+/* screen - desktop-1 */
+
+.desktop-1 {
+  align-items: center;
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  height: 2064px;
+  width: 1440px;
+}
+
+.desktop-1 .overlap-group5 {
+  height: 1084px;
+  margin-top: -92px;
+  position: relative;
+  width: 1440px;
+}
+
+.desktop-1 .gabin-vallet-j154n-ekpzl-q-unsplash-1 {
+  height: 770px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 314px;
+  width: 1440px;
+}
+
+.desktop-1 .title {
+  color: var(--spring-frost);
+  font-family: var(--font-family-monomaniac_one);
+  font-size: var(--font-size-xxl);
+  font-weight: 400;
+  left: 182px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 560px;
+  width: 1075px;
+}
+
+.desktop-1 .component-1 {
+  align-items: flex-start;
+  display: flex;
+  height: 374px;
+  left: 0;
+  min-width: 1440px;
+  position: absolute;
+  top: 0;
+}
+
+.desktop-1 .overlap-group4 {
+  height: 374px;
+  position: relative;
+  width: 1440px;
+}
+
+.desktop-1 .rectangle-18 {
+  background-color: var(--black);
+  height: 197px;
+  top: 118px;
+}
+
+.desktop-1 .overlap-group {
+  align-items: flex-end;
+  background-image: url(../img/moon-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  gap: 241px;
+  height: 374px;
+  justify-content: flex-end;
+  left: 429px;
+  min-width: 528px;
+  padding: 79.2px 46.5px;
+  position: absolute;
+  top: 0;
+}
+
+.desktop-1 .workouts {
+  color: var(--spring-frost);
+  font-family: var(--font-family-monomaniac_one);
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 0.96px;
+  min-height: 26px;
+  white-space: nowrap;
+  width: 92px;
+}
+
+.desktop-1 .resources {
+  height: 16px;
+  width: 94px;
+}
+
+.desktop-1 .component-3 {
+  align-items: flex-start;
+  display: flex;
+  min-width: 1440px;
+}
+
+.desktop-1 .overlap-group-1 {
+  height: 555px;
+  position: relative;
+  width: 1440px;
+}
+
+.desktop-1 .rectangle-2 {
+  background-color: #fffffff2;
+  height: 546px;
+  top: 0;
+}
+
+.desktop-1 .moon-1-1 {
+  height: 546px;
+  left: 280px;
+  object-fit: cover;
+  position: absolute;
+  top: 9px;
+  width: 915px;
+}
+
+.desktop-1 .alexander-redl-d3b-ymn-z0ank-unsplash-1 {
+  height: 436px;
+  left: 169px;
+  object-fit: cover;
+  position: absolute;
+  top: 40px;
+  width: 419px;
+}
+
+.desktop-1 .about-us {
+  color: #9e9797;
+  font-family: var(--font-family-monomaniac_one);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  left: 734px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 95px;
+  width: 76px;
+}
+
+.desktop-1 .what-is-paradigm {
+  color: var(--black);
+  font-family: var(--font-family-monomaniac_one);
+  font-size: var(--font-size-l);
+  font-weight: 400;
+  left: 726px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 118px;
+  width: 298px;
+}
+
+.desktop-1 .paradigm-is-here-to {
+  color: var(--black);
+  font-family: var(--font-family-monomaniac_one);
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  left: 727px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 174px;
+  width: 298px;
+}
+
+.desktop-1 .component-4 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-right: 54.0px;
+  margin-top: 43px;
+  min-height: 423px;
+  width: 880px;
+}
+
+.desktop-1 .features {
+  color: #c8ff83;
+  font-family: var(--font-family-monomaniac_one);
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 8.0px;
+  margin-top: -1px;
+  min-height: 34px;
+  text-align: center;
+  width: 194px;
+}
+
+.desktop-1 .what-we-offer {
+  color: var(--spring-frost);
+  font-family: var(--font-family-monomaniac_one);
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 46.0px;
+  min-height: 93px;
+  text-align: center;
+  width: 332px;
+}
+
+.desktop-1 .flex-row {
+  height: 212px;
+  margin-top: 84px;
+  min-width: 880px;
+}
+
+.desktop-1 .overlap-group3 {
+  align-self: center;
+  height: 181px;
+  margin-top: 9.0px;
+  position: relative;
+  width: 155px;
+}
+
+.desktop-1 .noun {
+  height: 140px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 150px;
+}
+
+.desktop-1 .curated-content-with-no-fluff {
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 131px;
+  width: 155px;
+}
+
+.desktop-1 .overlap-group2 {
+  height: 189px;
+  margin-bottom: 2px;
+  margin-left: 57px;
+  position: relative;
+  width: 155px;
+}
+
+.desktop-1 .covering-a-variety-of-topics {
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 131px;
+  width: 155px;
+}
+
+.desktop-1 .workout-container {
+  height: 197px;
+  margin-bottom: 2px;
+  margin-left: 143px;
+  position: relative;
+  width: 157px;
+}
+
+.desktop-1 .detailed-workouts-down-to-the-minute {
+  left: 2px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 139px;
+  width: 155px;
+}
+
+.desktop-1 .flex-col {
+  flex-direction: column;
+  gap: 14px;
+  margin-left: 57px;
+  min-height: 212px;
+  width: 156px;
+}
+
+.desktop-1 .noun-results-6408938-1 {
+  height: 140px;
+  width: 150px;
+}
+
+.desktop-1 .learn-to-progress-faster {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: 1px;
+  min-height: 58px;
+  text-align: center;
+  width: 155px;
+}
+
+.desktop-1 .flex {
+  align-items: flex-end;
+  display: flex;
+}
+
+.desktop-1 .rectangle {
+  left: 0;
+  position: absolute;
+  width: 1440px;
+}
