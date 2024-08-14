@@ -1,0 +1,20 @@
+:root { 
+  --black: #000000;
+  --spring-frost: #9cff1e;
+  --white: #ffffff;
+ 
+  --font-size-l: 36px;
+  --font-size-m: 24px;
+  --font-size-s: 20px;
+  --font-size-xl: 64px;
+  --font-size-xxl: 96px;
+ 
+  --font-family-monomaniac_one: "Monomaniac One", Helvetica;
+}
+.monomaniacone-normal-white-20px {
+  color: var(--white);
+  font-family: var(--font-family-monomaniac_one);
+  font-size: var(--font-size-s);
+  font-style: normal;
+  font-weight: 400;
+}

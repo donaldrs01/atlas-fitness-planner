@@ -1,0 +1,28 @@
+{
+    "Workouts": [
+        {
+            "Workout1": "Chest; Dumbbell Press- 4x10  2-3 minutes rest, Incline Press- 3x12  2-3 minutes rest, Dumbbell Pullovers- 2x20  1-2:30 minutes"
+        },
+        {
+            "Workout2": "Shoulders; Cable Crossover- 3x12 1-2 minutes rest, Lateral Raise- 3x15 1:30-2:30 minutes rest , Front Raise- 3x10 1-2 minutes rest"
+        },
+        {
+            "Workout3": "Back; Lat PullDown- 4x12  1:30-2:30 minutes rest, Cable Row- 4x15 2:30-3:30 rest, Weighted Side Bend- 6(3 each side)x10 1:00-1:30 minutes rest"
+
+        },
+        {
+            "Workout4": "Arms; Stretch Curls- 3x10 1-2 minutes rest, Tricep Pushdown- 3x10 1-2 minutes rest, Preacher Curl- 3x10 1-2 minutes rest, French Press- 3x10 1-2 minutes rest"
+        },
+        {
+            "Workout5": "Core; Weighted Rotations- 3x10 (each side) 30 sec- 90 sec rest, Reverse Crunch- 3x10 30 sec - 90 sec rest , Jack Knives- 4x20 2-2:30 minutes rest"
+        },
+        {
+            "Workout6": "Booty; Hip Thrust- 4x12 2-3 minutes rest, Backward Lunge- 3x8 (each side) 2-3 minutes rest, Deep Wide Squat- 3x12 2-3 minutes rest"
+        },
+        {
+            "Workout7": "Legs; Leg Press- 3x12 2-3 minutes rest, Romanian Deadlift- 3x8 2-3 minutes rest, Hamstring Curl- 3x12 2-3 minutes rest, Lateral Squat- 3x8 (each side) 2-3 minutes rest"
+        }
+
+    ]
+
+}
