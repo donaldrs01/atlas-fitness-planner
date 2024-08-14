@@ -50,31 +50,50 @@
       color: #555;
       margin-left: 5px;
     }
+
+    .navbar-nav {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+    }
+
+    #username-display {
+      font-style: italic;
+      margin-right: 15px;
+    }
       </style>
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="homepage.html">Fitness Planner</a>
+      <a class="navbar-brand" href="homepage.html"> Active Agenda </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="templates.html" aria-label="View Workout Templates">View Templates</a>
+            <a class="nav-link" href="templates.html">View Templates</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="resources.html" aria-label="View Workout Resources">Resources</a>
+            <a class="nav-link" href="resources.html">Resources</a>
           </li>
         </ul>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" id="auth-links">
           <li class="nav-item">
-            <a class="nav-link" href="login.html" aria-label="Log in to your account.">Login</a>
+            <a class="nav-link" href="login.html">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="signup.html" aria-label="Sign up for a new account.">Sign Up</a>
+            <a class="nav-link" href="signup.html">Sign Up</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto d-none" id="user-info">
+          <li class="nav-item">
+            <span class="nav-link" id="username-display">Welcome, <span id="username-placeholder">User</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="logout-link">Logout</a>
           </li>
         </ul>
       </div>

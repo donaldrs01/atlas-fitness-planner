@@ -1,6 +1,17 @@
 import { authorize, db } from "./firebase-config";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
+
+// Retreive user data from Firestore
+async function getUserData(uid) {
+    const userDocRef = doc(db, "users", uid);
+    const userDoc = await getDoc(userDocRef);
+    if (userDoc.exists()) {
+        return userDoc.data();
+    } else {
+        return null;
+    }
+}
 
 // Sign Up
 let submitFlag = false;
@@ -15,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             submitFlag = true;
 
             console.log("Submit event listener triggered.")
+            const username = document.getElementById("sign-up-username").value;
             const email = document.getElementById("sign-up-email").value;
             const password = document.getElementById("sign-up-password").value;
             const repeatPassword = document.getElementById("sign-up-password-repeat").value;
@@ -34,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Add user data to Firestore
                 await setDoc(doc(db, "users", user.uid), {
+                    username: username,
                     email: user.email,
                     createdAt: new Date()
                 });
@@ -57,6 +70,52 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Function to update navbar based on user's auth status
+    function updateNavBasedonAuth(user) {
+        const authLinks = document.getElementById("auth-links");
+        const userInfo = document.getElementById("user-info");
+
+        if (!authLinks || !userInfo) {
+            return;
+        }
+
+        const usernamePlaceholder = document.getElementById("username-placeholder");
+
+        if (user) {
+            authLinks.classList.add("d-none");
+            userInfo.classList.remove("d-none");
+
+            getUserData(user.uid).then(userData => {
+                if (userData && usernamePlaceholder) {
+                    usernamePlaceholder.textContent = userData.username;
+                }
+            });
+        } else {
+            authLinks.classList.remove("d-none");
+            userInfo.classList.add("d-none");
+        }
+    }
+
+    // Event listener to change navbar based on auth state
+    authorize.onAuthStateChanged((user) => {
+        updateNavBasedonAuth(user);
+    });
+
+    // Event listener for logout button 
+    const logoutLink = document.getElementById("logout-link");
+
+    if (logoutLink) {
+        logoutLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            authorize.signOut().then(() => {
+                updateNavBasedonAuth(null);
+            }).catch((error) => {
+                console.error("Error logging out:", error);
+            });
+        });
+    } else {
+        console.log("Logout link not found.");
+    }
     // Login
     const loginForm = document.getElementById("login-form");
 

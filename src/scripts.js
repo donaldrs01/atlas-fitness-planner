@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     templateLinks.forEach(link => {
         link.addEventListener("click", async (event) => {
             event.preventDefault();
+            event.stopPropagation();
             // 'Off' toggle
             const visibleWorkout = link.nextElementSibling;
             if (visibleWorkout && visibleWorkout.classList.contains("workout-details")) {
