@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+
+    #workout-templates {
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #workout-templates a {
+      font-size: 16px;
+      padding: 15px;
+      color:darkslategray;
+      border: none;
+      border-bottom: 1px solid;    
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+    }
+
+    .exercise-container {
+      max-width: 400px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      border: 1px solid;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .exercise-container h5 {
+      font-size: 18px;
+      font-weight: bold;
+      color: darkslategray;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+
+    .exercise-container p {
+      font-size: 16px;
+      color: #555;
+      margin-left: 5px;
+    }
+      </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="homepage.html">Fitness Planner</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="templates.html" aria-label="View Workout Templates">View Templates</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="resources.html" aria-label="View Workout Resources">Resources</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="login.html" aria-label="Log in to your account.">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signup.html" aria-label="Sign up for a new account.">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Resources Section -->
+  <main class="container mt-4">
+    <h2>Workout Templates</h2>
+    <div id="workout-templates" class="d-flex flex-wrap justify-content-center" aria-label="List of workout templates.">
+      <!-- Placeholder for workout templates -->
+       <div class="flex-fill m-2 text-center" style="max-width: 30%;">
+        <a href="#" class="list-group-item list-group-item-action" data-template="arms">Arms</a>
+       </div>
+       <div class="flex-fill m-2 text-center" style="max-width: 30%;">
+        <a href="#" class="list-group-item list-group-item-action" data-template="back">Back</a>
+       </div>
+       <div class="flex-fill m-2 text-center" style="max-width: 30%;">
+        <a href="#" class="list-group-item list-group-item-action" data-template="chest">Chest</a>
+       </div>
+       <div class="flex-fill m-2 text-center" style="max-width: 30%;">
+        <a href="#" class="list-group-item list-group-item-action" data-template="core">Core</a>
+       </div>
+       <div class="flex-fill m-2 text-center" style="max-width: 30%;">
+        <a href="#" class="list-group-item list-group-item-action" data-template="glutes">Glutes</a>
+       </div>
+       <div class="flex-fill m-2 text-center" style="max-width: 30%;">
+        <a href="#" class="list-group-item list-group-item-action" data-template="legs">Legs</a>
+       </div>
+        <div class="flex-fill m-2 text-center" style="max-width: 30%;">
+          <a href="#" class="list-group-item list-group-item-action" data-template="shoulders">Shoulders</a>
+        </div>
+    </div>
+
+    <h2 class="mt-4">Workout Videos</h2>
+    <div id="workout-videos" class="list-group" aria-label="List of workout videos.">
+      <!-- Placeholder for workout videos -->
+      <a href="#" class="list-group-item list-group-item-action">Video 1</a>
+      <a href="#" class="list-group-item list-group-item-action">Video 2</a>
+      <a href="#" class="list-group-item list-group-item-action">Video 3</a>
+    </div>
+
+    <h2 class="mt-4">Podcasts</h2>
+    <div id="podcasts" class="list-group" aria-label="List of podcasts.">
+      <!-- Placeholder for podcasts -->
+      <a href="#" class="list-group-item list-group-item-action">Podcast 1</a>
+      <a href="#" class="list-group-item list-group-item-action">Podcast 2</a>
+      <a href="#" class="list-group-item list-group-item-action">Podcast 3</a>
+    </div>
+  </main>
+  <script src="bundle.js"></script>
+</body>
+</html>
