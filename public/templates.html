@@ -6,11 +6,39 @@
   <title>Workout Templates</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
+
+    .navbar {
+      background-color: #d32f2f;
+    }
+
+    .nav-link, .navbar-brand {
+      color: #ffffff;
+    }
+
+    .navbar-brand {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.5em;
+    }
+
+    .nav-link:hover, .navbar-brand:hover {
+      color: #ff7043;
+    }
+
+    .sidebar {
+      max-width: 10%;
+    }
+
+    body {
+      background-color: #ffccbc;
+      color: #424242;
+    }
+
     .workout-details {
       padding: 20px;
-      background-color: #f8f9fa;
+      background-color: #f5f5f5;
       border: 1px solid #ddd;
       margin-bottom: 20px;
       border-radius: 8px;
@@ -28,7 +56,6 @@
 
     .exercise-container {
         padding: 15px;
-        background-color: #ffffff;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
@@ -54,7 +81,7 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"> Active Agenda </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -127,10 +154,11 @@
             <h3 class="text-center mb-4">Arms Workout</h3>
             <div class="d-flex align-items-center justify-content-between">
                 <div>
-                    <h5>Exercise 1: Stretch Curls</h5>
+                    <h5>Exercise 1: Bench Curls</h5>
                     <p>Sets: 3 | Reps: 10</p>
                     <p>Rest: 1-2 minutes</p>
                 </div>
+                <img src="/images/arms1.webp" alt="Bench Curls" class="exercise-image">
             </div>
             <div class="d-flex align-items-center justify-content-between">
                 <div>

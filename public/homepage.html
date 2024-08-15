@@ -20,7 +20,7 @@
     }
 
     .navbar-brand {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: "Bebas Neue", sans-serif;
       font-size: 1.5em;
     }
 
@@ -261,7 +261,7 @@
       <!-- Weather Section on Right -->
       <aside class="col-md-2 d-none d-md-block">
         <div class="weather-section">
-          <h2>Weather Update</h2>
+          <h2>Current Forecast</h2>
           <div id="weather-right">
             <p>Loading...</p>
           </div>
@@ -294,12 +294,12 @@
 
       $.getJSON(apiUrl, function(data) {
         console.log('API Response:', data);
-        const currentTemp = data.main.temp;
+        const currentTemp = Math.round(data.main.temp);
         const description = data.weather[0].description;
 
         const weatherHtml = `
           <p><strong>Temperature:</strong> ${currentTemp}°F</p>
-          <p><strong>Condition:</strong> ${description}</p>
+          <p><strong>Conditions:</strong> ${description}</p>
         `;
 
         $('#weather-right').html(weatherHtml);
@@ -331,7 +331,9 @@
     const quotes = [
       "The pain you feel today will be the strength you feel tomorrow. – Arnold Schwarzenegger",
       "Success usually comes to those who are too busy to be looking for it. – Henry David Thoreau",
-      "All progress takes place outside the comfort zone. – Michael John Bobak"
+      "All progress takes place outside the comfort zone. – Michael John Bobak",
+      "Yeah buddy, if it doesn't challenge you, it doesn't change you. – Ronnie Coleman",
+      "Don't be scared to LIFT HEAVY! You won't get huge and bulky, you'll just get amazing. - Jessie Hilgenberg"
     ];
     let currentQuoteIndex = 0;
     function updateQuote() {
