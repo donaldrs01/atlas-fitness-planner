@@ -8,7 +8,7 @@ T3 end-of-term project in which we are creating a fitness web app from scratch.
 Discover a curated selection of the finest resources in health and wellness with Active Agenda. Whether you're a fitness enthusiast, a wellness seeker, or just beginning your journey towards a healthier lifestyle, Active Agenda provides you with high-quality information and tools to support your goals.
 
 ## Getting Started
-Simply click the link and check ou the site!
+Simply click the link above and check ou the site!
 
 ## Layout
 
