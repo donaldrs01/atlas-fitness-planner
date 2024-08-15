@@ -61,6 +61,9 @@ function displayWorkout(workoutData, clickedElement) {
     clickedElement.after(workoutContainer);
 }
 
+// Track open templates
+const openTemplates = {};
+
 // Add event listeners to each template link
 document.addEventListener("DOMContentLoaded", () => {
     const templateLinks = document.querySelectorAll("#workout-templates a");
@@ -69,19 +72,25 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener("click", async (event) => {
             event.preventDefault();
             event.stopPropagation();
-            // 'Off' toggle
-            const visibleWorkout = link.nextElementSibling;
-            if (visibleWorkout && visibleWorkout.classList.contains("workout-details")) {
-                visibleWorkout.remove();
-                return;
-            } 
-            // "On" toggle
+
             const templateName = link.getAttribute("data-template");
-            const workoutData = await getWorkoutData(templateName);
-            if (workoutData) {
-                displayWorkout(workoutData, link);
+            // Toggle on/off logic based on state of openTemplates
+            if (openTemplates[templateName]) {
+                // Template is open, so close it
+                const visibleWorkout = link.nextElementSibling;
+                if (visibleWorkout && visibleWorkout.classList.contains("workout-details")) {
+                    visibleWorkout.remove();
+                }
+                delete openTemplates[templateName];
+            } else {
+                // Template is closed, so open it
+                const workoutData = await getWorkoutData(templateName);
+                if (workoutData) {
+                    displayWorkout(workoutData, link);
+                    openTemplates[templateName] = true;
+                }
             }
-        })
+        });
     });
 });
 
