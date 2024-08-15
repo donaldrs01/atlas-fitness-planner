@@ -24,6 +24,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/resources.html",
       filename: "resources.html"
+    }),
+    new HtmlWebpackPlugin({
+      template: "./public/templates.html",
+      filename: "templates.html"
     })
   ]
 };
