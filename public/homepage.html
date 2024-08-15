@@ -1,60 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Active Agenda </title>
+  <title>Active Agenda</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"></script>
+
   <style>
     /* Pull CSS out into other file */
-    
-    .navbar, .sidebar {
-      background-color: #d32f2f;
-    }
-
-    .nav-link, .navbar-brand {
-      color: #ffffff;
-    }
-
-    .navbar-brand {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 1.5em;
-    }
-
-    .nav-link:hover, .navbar-brand:hover {
-      color: #ff7043;
-    }
-
-    .sidebar {
-      max-width: 10%;
-    }
-
-    body {
-      background-color: #ffccbc;
-      color: #424242;
-    }
-    
-    /*
     .sidebar {
       background-color: #f8f9fa;
       min-height: 100vh;
       padding-top: 20px;
     }
+
     .sidebar .nav-link {
       color: #333;
       padding: 10px 20px;
       font-weight: bold;
     }
+
     .sidebar .nav-link:hover {
       background-color: #e9ecef;
-    }
-      */
-    .homepage-header h2 {
-      font-size: 4em;
-      font-family: "Bebas Neue", sans-serif;
     }
     .quote-section {
       background-color: #f5f5dc;
@@ -62,12 +36,15 @@
       text-align: center;
       font-style: italic;
     }
+
     .weather-section {
       padding: 20px;
       background-color: #ffeadb;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
     }
+
     .weather-section h2 {
       font-size: 1.5rem;
       margin-bottom: 20px;
@@ -79,7 +56,7 @@
       align-items: center;
     }
 
-    #username-display {
+    #email-display {
       font-style: italic;
       margin-right: 15px;
     }
@@ -114,18 +91,37 @@
       .sidebar {
         display: none;
       }
+
       .quote-section {
         margin-bottom: 20px;
       }
+
+      .weather-section {
+        display: block;
+        margin-top: 20px;
+      }
+
+      /* Make sure weather section is visible on mobile */
+      .weather-section h2,
+      .weather-section p {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Ensure that weather section is visible in all screen sizes */
+    .weather-section {
+      margin-top: 20px;
     }
   </style>
 </head>
+
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"> Active Agenda </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="#">Active Agenda</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -147,7 +143,7 @@
         </ul>
         <ul class="navbar-nav ms-auto d-none" id="user-info">
           <li class="nav-item">
-            <span class="nav-link" id="username-display">Welcome, <span id="username-placeholder">User&#33;</span>
+            <span class="nav-link" id="email-display">Welcome, <span id="email-placeholder">User</span></span>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" id="logout-link">Logout</a>
@@ -157,10 +153,8 @@
     </div>
   </nav>
 
-  <!-- Main Layout -->
   <div class="container-fluid">
     <div class="row">
-      <!-- Sidebar -->
       <nav class="col-md-2 d-none d-md-block sidebar">
         <ul class="nav flex-column">
           <li class="nav-item">
@@ -173,20 +167,21 @@
             <a class="nav-link" href="resources.html">Resources</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="planner.html">Agenda</a>
+            <a class="nav-link" href="agenda.html">Agenda</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item d-none" id="login-sidebar">
             <a class="nav-link" href="login.html">Login</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item d-none" id="signup-sidebar">
             <a class="nav-link" href="signup.html">Sign Up</a>
+          </li>
+          <li class="nav-item d-none" id="logout-sidebar">
+            <a class="nav-link" href="#" id="logout-sidebar-link">Logout</a>
           </li>
         </ul>
       </nav>
 
-      <!-- Main Content -->
       <main class="col-md-8 ms-sm-auto col-lg-8 px-md-4">
-        <!-- Quote Section -->
         <div class="quote-section mb-4">
           <blockquote class="blockquote">
             <p id="quote">"The pain you feel today will be the strength you feel tomorrow." – Arnold Schwarzenegger</p>
@@ -194,70 +189,14 @@
         </div>
 
         <!-- Workout Template Section -->
-        <div class="container mt-5">
-          <div class="homepage-header text-center mb-4">
-            <h2>Area of <span id="focus-text" style="font-family: 'Bebas Neue', sans-serif;">Focus</span></h2>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-12 col-sm-6 col-md-4 mb-4">
-              <a href="templates.html#chest-workout">
-                <div class="category-item">
-                  <img src="/images/chest.jpg" alt="Chest">
-                  <h5>Chest</h5>
-                </div>
-              </a>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mb-4">
-              <a href="templates.html#arms-workout">
-              <div class="category-item">
-                <img src="/images/arms.jpg" alt="Arms">
-                <h5>Arms</h5>
-              </div>
-              </a>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mb-4">
-              <a href="templates.html#glutes-workout">
-              <div class="category-item">
-                <img src="/images/glutes.webp" alt="Glutes">
-                <h5>Glutes</h5>
-              </div>
-              </a>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mb-4">
-              <a href="templates.html#legs-workout">
-              <div class="category-item">
-                <img src="/images/legs.jpg" alt="Legs">
-                <h5>Legs</h5>
-              </div>
-              </a>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mb-4">
-              <a href="templates.html#core-workout">
-              <div class="category-item">
-                <img src="/images/core.jpg" alt="Core">
-                <h5>Core</h5>
-              </div>
-              </a>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mb-4">
-              <a href="templates.html#back-workout">
-              <div class="category-item">
-                <img src="/images/back.jpg" alt="Back">
-                <h5>Back</h5>
-              </div>
-              </a>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mb-4">
-              <a href="templates.html#shoulders-workout">
-              <div class="category-item">
-                <img src="/images/shoulder.jpg" alt="Shoulders">
-                <h5>Shoulders</h5>
-              </div>
-              </a>
-            </div>
+        <div class=" mb-4">
+          <h2>Workout Templates</h2>
+          <div id="">
+            <p>Templates Placeholder</p>
           </div>
         </div>
       </main>
+
       <!-- Weather Section on Right -->
       <aside class="col-md-2 d-none d-md-block">
         <div class="weather-section">
@@ -271,6 +210,51 @@
   </div>
 
   <script>
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // Check user auth and update
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        const email = user.email;
+        $('#auth-links').addClass('d-none');
+        $('#user-info').removeClass('d-none');
+        $('#email-placeholder').text(email);
+        $('#login-sidebar').addClass('d-none');
+        $('#signup-sidebar').addClass('d-none');
+        $('#logout-sidebar').removeClass('d-none');
+
+        // Fetch user data from firestore
+        db.collection('users').doc(user.uid).get().then((doc) => {
+          if (doc.exists) {
+            console.log("User data:", doc.data());
+
+          } else {
+            console.log("No such document!");
+          }
+        }).catch((error) => {
+          console.log("Error getting document:", error);
+        });
+      } else {
+        $('#auth-links').removeClass('d-none');
+        $('#user-info').addClass('d-none');
+        $('#login-sidebar').removeClass('d-none');
+        $('#signup-sidebar').removeClass('d-none');
+        $('#logout-sidebar').addClass('d-none');
+      }
+    });
+
+    // Log out the user and clear the sesh
+    $('#logout-link, #logout-sidebar-link').click(function () {
+      auth.signOut().then(() => {
+        window.location.href = 'index.html';
+      }).catch((error) => {
+        console.error('Logout error:', error.message);
+      });
+    });
+
     const apiKey = '22dd5676eaf9df196848c785dd288945';
 
     // Geoloc for user
@@ -288,22 +272,21 @@
       fetchWeather(lat, lon);
     }
 
-    // Weather data
     function fetchWeather(lat, lon) {
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
 
-      $.getJSON(apiUrl, function(data) {
+      $.getJSON(apiUrl, function (data) {
         console.log('API Response:', data);
         const currentTemp = Math.round(data.main.temp);
         const description = data.weather[0].description;
 
         const weatherHtml = `
           <p><strong>Temperature:</strong> ${currentTemp}°F</p>
-          <p><strong>Conditions:</strong> ${description}</p>
+          <p><strong>Condition:</strong> ${description}</p>
         `;
 
         $('#weather-right').html(weatherHtml);
-      }).fail(function(jqXHR, textStatus, errorThrown) {
+      }).fail(function (jqXHR, textStatus, errorThrown) {
         console.error('Error retrieving weather data:', jqXHR.status, textStatus, errorThrown);
         $('#weather-right').text('Unable to retrieve weather data.');
       });
@@ -327,25 +310,26 @@
       }
     }
 
-    // Cycle through quotes
+    // Quotes
     const quotes = [
       "The pain you feel today will be the strength you feel tomorrow. – Arnold Schwarzenegger",
       "Success usually comes to those who are too busy to be looking for it. – Henry David Thoreau",
-      "All progress takes place outside the comfort zone. – Michael John Bobak",
-      "Yeah buddy, if it doesn't challenge you, it doesn't change you. – Ronnie Coleman",
-      "Don't be scared to LIFT HEAVY! You won't get huge and bulky, you'll just get amazing. - Jessie Hilgenberg"
+      "All progress takes place outside the comfort zone. – Michael John Bobak"
     ];
     let currentQuoteIndex = 0;
+
     function updateQuote() {
       $('#quote').text(quotes[currentQuoteIndex]);
       currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
     }
-    setInterval(updateQuote, 5000);
 
-    $(document).ready(function() {
+    $(document).ready(function () {
       getLocation();
+      setInterval(updateQuote, 5000);
     });
   </script>
+
   <script src="bundle.js"></script>
 </body>
+
 </html>
