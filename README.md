@@ -1,3 +1,4 @@
+![Screenshot of app](images/screenshot.png)
 [Active Agenda](https://t3-fitness-app-from-scratch.web.app/)
 
 
