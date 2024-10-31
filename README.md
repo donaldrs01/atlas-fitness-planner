@@ -80,7 +80,7 @@ Google FireBase/FireStore, JavaScript, HTML, CSS
 
 ##### Authors 
 Ryan Donaldson [(GitHub)](https://github.com/donaldrs01) [(LinkedIn)](https://www.linkedin.com/in/ryandonaldson90/)  
-Jess Dison [(GitHub)](https://github.com/jessasesh)
+Jess Dison [(GitHub)](https://github.com/jessasesh)  
 Luke Scuhula [GitHub](https://github.com/lukeschula) [Linkedin](https://www.linkedin.com/in/luke-schula-480548169/)
 
 
