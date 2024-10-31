@@ -28,9 +28,9 @@ Organize your life to help keep your workout routine going. Drag and drop differ
 ## Technologies Used
 Google FireBase/FireStore, JavaScript, HTML, CSS
 
-##### Authors
+##### Authors 
+Ryan Donaldson [(GitHub)](https://github.com/donaldrs01)  
 Jess Dison  
-Ryan Donaldson [(GitHub profile)](https://github.com/donaldrs01)  
 Luke Scuhula
 
 
